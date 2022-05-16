@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Carousel from '../Carousel/Carousel';
 
 const Header = () => {
     return (
-        <div>
             <nav className="
   sticky-top
   w-full
@@ -51,7 +49,7 @@ const Header = () => {
       " to="#">
                             <img src="https://i.ibb.co/4R7Lppg/warehouse.png" style={{ height: '25px' }} alt=""
                                 loading="lazy" />
-                            <h1 className='font-bold ml-2'>Smart Warehouse</h1>
+                            <h1 className='font-bold ml-2'>Smart Inventory</h1>
                         </Link>
 
                         <ul className="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
@@ -162,8 +160,6 @@ const Header = () => {
 
                 </div>
             </nav>
-            <Carousel></Carousel>
-        </div>
 
     );
 };
