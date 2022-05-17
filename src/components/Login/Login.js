@@ -3,6 +3,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Social from '../SocialLogin/Social';
 
 
 const Login = () => {
@@ -14,16 +15,14 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
     const onSubmit = data => {
-        const {email, password} = data;
-        signInWithEmailAndPassword(email,password)
+        const { email, password } = data;
+        signInWithEmailAndPassword(email, password)
     };
     const navigate = useNavigate()
-    if(user){
-       console.log(user);
-    }
+
     return (
         <div className='w-full md:w-1/2 mx-auto my-10'>
-
+            <h2 className='text-3xl text-center text-green-400 my-10 underline underline-offset-4'>Login</h2>
             <form onSubmit={handleSubmit(onSubmit)} className="w-1/2 mx-auto">
                 <label className="block">
                     <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
@@ -40,6 +39,7 @@ const Login = () => {
                 <p>New user? <span className='text-blue-700 cursor-pointer' onClick={() => navigate('/signup')}>Register</span></p>
                 <input className='bg-green-300 p-2 rounded-md block mx-auto cursor-pointer' type="submit" value="Login" />
             </form>
+            <Social></Social>
         </div>
     );
 };
