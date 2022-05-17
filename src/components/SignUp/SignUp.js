@@ -2,12 +2,15 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from "../../firebase.init"
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Social from '../SocialLogin/Social';
 
 const SignUp = () => {
 
     const { register, handleSubmit } = useForm();
+    const navigate = useNavigate()
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     const [
         createUserWithEmailAndPassword,
         user,
@@ -15,16 +18,12 @@ const SignUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const onSubmit = data => {
-        const { email, password } = data
-        createUserWithEmailAndPassword(email, password)
+        const { email, password } = data;
+        createUserWithEmailAndPassword(email, password);
+        navigate('/');
     };
-    const navigate = useNavigate()
-    if (user)
-        (
-            <div>
-                <p>Registered User: {user.email}</p>
-            </div>
-        )
+
+    
     return (
         <div className='w-full md:w-1/2 mx-auto my-10'>
             <h2 className='text-3xl text-center text-green-400 my-10 underline underline-offset-4'>Register</h2>
