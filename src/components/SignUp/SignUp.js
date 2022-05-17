@@ -47,7 +47,7 @@ const SignUp = () => {
                     <input type="password" className="my-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="you@example.com" {...register("password", { required: true })} />
                 </label>
                 <p>Already have an account? <span className='text-blue-700 cursor-pointer' onClick={()=>navigate('/login')}>Login</span></p>
-                <input className='bg-green-300 p-2 rounded-md block mx-auto my-1' type="submit" value="Sign up" />
+                <input className='bg-green-300 p-2 rounded-md block mx-auto my-1 ' type="submit" value="Sign up" />
             </form>
             
         </div>
