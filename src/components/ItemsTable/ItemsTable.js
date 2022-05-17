@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import useItems from '../../hooks/useItem';
 
 const ItemsTable = ({ item }) => {
@@ -49,7 +50,7 @@ const ItemsTable = ({ item }) => {
             </td>
             <td className="border border-slate-300 text-sm text-gray-900 font-light px-6 py-4">
                 <button onClick={()=>deleteItem(item._id)} className='bg-red-700 mx-2 p-3'>X</button>
-                <button className='bg-yellow-400 mx-2 p-3'>Manage</button>
+                <Link to={`manage/${item?._id}`} className='bg-yellow-400 mx-2 p-3'>Manage</Link>
             </td>
         </tr>
 

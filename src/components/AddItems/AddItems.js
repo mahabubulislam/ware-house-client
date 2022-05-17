@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 const AddItems = () => {
-    const [updateitem, setUpdateItems] = useState([]);
+    const [updateItem, setUpdateItems] = useState([]);
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         setUpdateItems(data);
@@ -14,9 +14,9 @@ const AddItems = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(updateitem)
+            body: JSON.stringify(updateItem)
         })
-    }, [updateitem])
+    }, [updateItem])
 
     return (
         <div className='my-10'>

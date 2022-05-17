@@ -56,7 +56,7 @@ const Header = () => {
                     </Link>
                     <ul className="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
                         <li className="nav-item p-2">
-                            <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="allitems">Items</Link>
+                            <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="items">Items</Link>
                         </li>
                         <li className="nav-item p-2">
                             <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="about">About us</Link>
@@ -137,7 +137,7 @@ const Header = () => {
                                             whitespace-nowrap
                                             bg-transparent
                                           first-letter:text-gray-700
-                                          hover:bg-gray-100" to="/manageitem">Manage Item</Link>
+                                          hover:bg-gray-100" to="/UpdateItem">Manage Item</Link>
                                     </li>
                                     <li>
                                         <Link className="
