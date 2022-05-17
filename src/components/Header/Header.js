@@ -6,7 +6,6 @@ import auth from '../../firebase.init';
 
 const Header = () => {
     const [user, loading] = useAuthState(auth);
-    console.log(user?.displayName)
     const navigate = useNavigate()
     return (
         <nav className="w-full
@@ -57,7 +56,7 @@ const Header = () => {
                     </Link>
                     <ul className="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
                         <li className="nav-item p-2">
-                            <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="dashboard">Dashboard</Link>
+                            <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="allitems">Items</Link>
                         </li>
                         <li className="nav-item p-2">
                             <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="about">About us</Link>
@@ -110,7 +109,6 @@ const Header = () => {
                                              w-full
                                              whitespace-nowrap
                                              bg-transparent
-                                           text-gray-700
                                            hover:bg-gray-100">
                                         {user?.displayName}
                                     </li>

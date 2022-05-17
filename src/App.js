@@ -25,7 +25,7 @@ function App() {
         </Route>
         <Route path='/additem' element={
           <RequirAuth>
-            <AllItems />
+            <AddItems/>
           </RequirAuth>}>
         </Route>
       </Routes>
