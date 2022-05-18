@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 import auth from '../../firebase.init';
@@ -14,7 +14,6 @@ const AddItems = () => {
         const price = e.target.price.value;
         const quantity = e.target.quantity.value;
         const items = { email, name, supplier, description, img, price, quantity }
-        console.log(items)
         e.target.reset()
 
         //  add data to firebase
@@ -25,6 +24,7 @@ const AddItems = () => {
             },
             body: JSON.stringify(items)
         })
+
     };
 
 

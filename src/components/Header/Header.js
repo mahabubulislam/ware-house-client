@@ -3,10 +3,20 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loading from '../Loading/Loading';
 
 const Header = () => {
     const [user, loading] = useAuthState(auth);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const handleLogout = () => {
+        const proceed = window.confirm("Are you sure to logout?")
+        if (proceed) {
+            signOut(auth)
+        }
+    }
+    if (loading) {
+        return <Loading></Loading>
+    }
     return (
         <nav className="w-full
                             sticky-top
@@ -127,20 +137,6 @@ const Header = () => {
                                     </li>
                                     <li>
                                         <Link className="
-                                            dropdown-item
-                                            text-sm
-                                            py-2
-                                            px-4
-                                            font-normal
-                                            block
-                                            w-full
-                                            whitespace-nowrap
-                                            bg-transparent
-                                          first-letter:text-gray-700
-                                          hover:bg-gray-100" to="/items">Manage Item</Link>
-                                    </li>
-                                    <li>
-                                        <Link className="
                                              dropdown-item
                                              text-sm
                                              py-2
@@ -154,7 +150,7 @@ const Header = () => {
                                            hover:bg-gray-100" to="additem">Add Item</Link>
                                     </li>
                                     <li>
-                                        <button onClick={() => signOut(auth)} className="
+                                        <button onClick={handleLogout} className="
                                                 dropdown-item
                                                 text-sm
                                                 py-2

@@ -32,7 +32,6 @@ const ManageItem = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setReload(!reload)
             })
     }
@@ -77,6 +76,7 @@ const ManageItem = () => {
                                     <input type="submit" value="Restock" className='bg-red-300 p-2 rounded-md cursor-pointer'  />
                                 </form>
                                 <Link className='bg-green-300 p-2 block w-1/4 mx-auto rounded-md text-center' to="/additem">Add Item</Link>
+                                <Link className='bg-red-300 p-2 block w-1/4 mx-auto rounded-md text-center' to="/myitems">Manage Item</Link>
                             </div>
                         </div>
 

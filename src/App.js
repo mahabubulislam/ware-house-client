@@ -4,7 +4,6 @@ import AllItems from "./components/AllItems/AllItems";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
-import UpdateItem from "./components/UpdateItem/UpdateItem";
 import RequirAuth from "./components/RequirAuth/RequirAuth";
 import SignUp from "./components/SignUp/SignUp";
 import ManageItem from "./components/ManageItem/ManageItem";
@@ -13,6 +12,7 @@ import NotFound from "./components/NotFound/NotFound";
 import About from "./components/About/About";
 import Footer from "./components/Footer/Footer";
 import MyItems from "./components/MyItems/MyItems";
+
 
 
 

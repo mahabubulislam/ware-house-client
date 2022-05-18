@@ -3,6 +3,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loading from '../Loading/Loading';
 import Social from '../SocialLogin/Social';
 
 
@@ -20,8 +21,13 @@ const Login = () => {
     const onSubmit = data => {
         const { email, password } = data;
         signInWithEmailAndPassword(email, password)
-        navigate(from, { replace: true });
     };
+    if (user) {
+        navigate(from, { replace: true });
+    }
+    if (loading) {
+        return <Loading></Loading>
+    }
 
     return (
         <div className='w-full md:w-1/2 mx-auto my-10'>
@@ -39,10 +45,15 @@ const Login = () => {
                     </span>
                     <input type="password" className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="password" {...register("password", { required: true })} />
                 </label>
+                {
+
+                    <p className='text-center text-red-600'>{error?.message.slice(10)}</p>
+
+                }
                 <p>New user? <span className='text-blue-700 cursor-pointer' onClick={() => navigate('/signup')}>Register</span></p>
                 <input className='bg-green-300 p-2 rounded-md block mx-auto cursor-pointer' type="submit" value="Login" />
             </form>
-            <Social></Social>
+            <div><Social></Social></div>
         </div>
     );
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loading from '../Loading/Loading';
 
 const Social = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -11,12 +12,20 @@ const Social = () => {
     const handleSubmit = () => {
         signInWithGoogle()
     }
-    if(user){
+    if (user) {
         navigate(from, { replace: true });
+    }
+    if (loading) {
+        return <Loading></Loading>
     }
     return (
 
         <div>
+            {
+
+                <p className='text-center text-red-600'>{error?.message.slice(10)}</p>
+
+            }
             <div className='flex justify-center items-center'>
                 <div className="bg-green-700 w-28 h-px mx-3"></div>
                 <p>or</p>

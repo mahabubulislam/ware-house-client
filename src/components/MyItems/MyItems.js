@@ -8,8 +8,8 @@ const MyItems = () => {
     const [items, setItems] = useState([]);
     const [user] = useAuthState(auth)
     const email = user?.email
-    const url = `http://localhost:5000/myitems?email=${email}`;
-    console.log(url)
+    const url = `https://peaceful-dawn-20015.herokuapp.com/myitems?email=${email}`;
+
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
