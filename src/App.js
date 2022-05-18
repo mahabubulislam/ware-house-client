@@ -9,6 +9,7 @@ import RequirAuth from "./components/RequirAuth/RequirAuth";
 import SignUp from "./components/SignUp/SignUp";
 import ManageItem from "./components/ManageItem/ManageItem";
 import Blogs from "./components/Blogs/Blogs";
+import NotFound from "./components/NotFound/NotFound";
 
 
 
@@ -37,8 +38,7 @@ function App() {
             <ManageItem/>
           </RequirAuth>}>
         </Route>
-       
-        
+        <Route path="*" element={<NotFound/>}></Route>
       </Routes>
     </div>
   );
