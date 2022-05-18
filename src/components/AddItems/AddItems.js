@@ -3,8 +3,6 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 import auth from '../../firebase.init';
 const AddItems = () => {
-    const [addItem, setAddItem] = useState({});
-
     const [user] = useAuthState(auth);
     const email = user?.email;
     const handleSubmit = e => {
@@ -17,7 +15,6 @@ const AddItems = () => {
         const quantity = e.target.quantity.value;
         const items = { email, name, supplier, description, img, price, quantity }
         console.log(items)
-        setAddItem(items);
         e.target.reset()
 
         //  add data to firebase
@@ -26,7 +23,7 @@ const AddItems = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(addItem)
+            body: JSON.stringify(items)
         })
     };
 
@@ -39,7 +36,7 @@ const AddItems = () => {
                 <input className='block border-2 w-full mb-1' name='name' placeholder='Products name' required />
                 <input className='block border-2 w-full mb-1 uppercase' name='supplier' placeholder='Supplier name' required />
                 <textarea className='block border-2 w-full mb-1' name='description' placeholder='Description' required />
-                <input className='block border-2 w-full mb-1' name='img' placeholder='Product image link' required />
+                <input className='block border-2 w-full mb-1' name='img' placeholder='Product image link' />
                 <input className='block border-2 w-full mb-1' name='price' type="number" placeholder='Price' required />
                 <input className='block border-2 w-full mb-1' name='quantity' type="number" placeholder='Quantity' required />
                 <input className='block border-2 w-1/3 mx-auto cursor-pointer hover:bg-green-400' type="submit" value="Add Item" />
