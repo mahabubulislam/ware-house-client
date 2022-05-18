@@ -8,6 +8,7 @@ import UpdateItem from "./components/UpdateItem/UpdateItem";
 import RequirAuth from "./components/RequirAuth/RequirAuth";
 import SignUp from "./components/SignUp/SignUp";
 import ManageItem from "./components/ManageItem/ManageItem";
+import Blogs from "./components/Blogs/Blogs";
 
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
+        <Route path="blogs" element={<Blogs/>}></Route>
         <Route path="/items" element={
           <RequirAuth>
             <AllItems />
