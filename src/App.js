@@ -10,6 +10,7 @@ import SignUp from "./components/SignUp/SignUp";
 import ManageItem from "./components/ManageItem/ManageItem";
 import Blogs from "./components/Blogs/Blogs";
 import NotFound from "./components/NotFound/NotFound";
+import About from "./components/About/About";
 
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="blogs" element={<Blogs/>}></Route>
+        <Route path="about" element={<About/>}></Route>
         <Route path="/items" element={
           <RequirAuth>
             <AllItems />
