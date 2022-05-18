@@ -7,6 +7,7 @@ import Login from "./components/Login/Login";
 import UpdateItem from "./components/UpdateItem/UpdateItem";
 import RequirAuth from "./components/RequirAuth/RequirAuth";
 import SignUp from "./components/SignUp/SignUp";
+import ManageItem from "./components/ManageItem/ManageItem";
 
 
 
@@ -29,16 +30,13 @@ function App() {
             <AddItems/>
           </RequirAuth>}>
         </Route>
-        <Route path='items/update/:id' element={
+        <Route path='/manage:id' element={
           <RequirAuth>
-            <UpdateItem/>
+            <ManageItem/>
           </RequirAuth>}>
         </Route>
-        <Route path='/manage/:id' element={
-          <RequirAuth>
-            <UpdateItem/>
-          </RequirAuth>}>
-        </Route>
+       
+        
       </Routes>
     </div>
   );

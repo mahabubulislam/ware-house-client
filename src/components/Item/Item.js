@@ -15,7 +15,7 @@ const Item = ({ item }) => {
                     <p>{description}</p>
                     <h5><span className='font-bold'>Price: </span>${price}</h5>
                     <p><span className='font-bold'>Quantity</span> {quantity}</p>
-                    <button onClick={()=> navigate(`/item/${_id}`)} className='bg-blue-200 my-3 p-3 text rounded-md'>Manage Item</button>
+                    <button onClick={()=> navigate(`/manage/${_id}`)} className='bg-blue-200 my-3 p-3 text rounded-md'>Manage Item</button>
                 </div>
             </div>
 

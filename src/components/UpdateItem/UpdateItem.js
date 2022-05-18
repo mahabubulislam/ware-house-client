@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 
 const UpdateItem = () => {
-    const [updateItem, setUpdateItems] = useState([]);
+    const [updateItem, setUpdateItem] = useState([])
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        setUpdateItems(data);
+        setUpdateItem(data)
         reset()
     };
     const { id } = useParams();
-
-    useEffect(() => {
         const url = `http://localhost:5000/items/${id}`
         fetch(url, {
             method: 'PUT',
@@ -22,7 +20,8 @@ const UpdateItem = () => {
         })
             .then(res => res.json())
             .then(data => console.log(data))
-    }, [updateItem,id])
+    
+    console.log(updateItem);
     return (
         <div>
             <h1>Updating user {id}</h1>

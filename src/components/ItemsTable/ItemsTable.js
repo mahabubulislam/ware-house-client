@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import useItems from '../../hooks/useItem';
 
@@ -7,17 +6,16 @@ const ItemsTable = ({ item }) => {
     const { name, supplier, img, description, price, quantity } = item;
     const deleteItem = id => {
         const url = `http://localhost:5000/items/${id}`
-        fetch(url , {
+        fetch(url, {
             method: 'DELETE',
         })
-        .then(res =>res.json())
-        .then(data=>{
-            if(data.deleteCount > 0){
-                const remaining = items?.find(item=>item._id!==id);
-                setItems(remaining)
-            }
-        })
-        
+            .then(res => res.json())
+            .then(data => {
+                if (data.deleteCount > 0) {
+                    const remaining = items.filter(item => item._id !== id);
+                    setItems(remaining)
+                }
+            })
     }
     return (
         <tr className="bg-gray-100 border-b">
@@ -49,7 +47,7 @@ const ItemsTable = ({ item }) => {
                 }
             </td>
             <td className="border border-slate-300 text-sm text-gray-900 font-light px-6 py-4">
-                <button onClick={()=>deleteItem(item._id)} className='bg-red-700 mx-2 p-3'>X</button>
+                <button onClick={() => deleteItem(item._id)} className='bg-red-700 mx-2 p-3'>X</button>
                 <Link to={`manage/${item?._id}`} className='bg-yellow-400 mx-2 p-3'>Manage</Link>
             </td>
         </tr>

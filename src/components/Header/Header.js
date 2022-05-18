@@ -137,7 +137,7 @@ const Header = () => {
                                             whitespace-nowrap
                                             bg-transparent
                                           first-letter:text-gray-700
-                                          hover:bg-gray-100" to="/UpdateItem">Manage Item</Link>
+                                          hover:bg-gray-100" to="/manage">Manage Item</Link>
                                     </li>
                                     <li>
                                         <Link className="
