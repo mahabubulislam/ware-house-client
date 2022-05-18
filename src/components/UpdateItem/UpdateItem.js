@@ -10,7 +10,7 @@ const UpdateItem = () => {
         reset()
     };
     const { id } = useParams();
-        const url = `http://localhost:5000/items/${id}`
+        const url = `https://peaceful-dawn-20015.herokuapp.com/items/${id}`
         fetch(url, {
             method: 'PUT',
             headers: {

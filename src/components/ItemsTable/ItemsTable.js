@@ -3,19 +3,22 @@ import useItems from '../../hooks/useItem';
 
 const ItemsTable = ({ item }) => {
     const [items, setItems] = useItems()
-    const { name, supplier, img, description, price, quantity } = item;
+    const { name, supplier, img, description, price, quantity } = item ;
     const deleteItem = id => {
-        const url = `http://localhost:5000/items/${id}`
-        fetch(url, {
-            method: 'DELETE',
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deleteCount > 0) {
-                    const remaining = items.filter(item => item._id !== id);
-                    setItems(remaining)
-                }
+        const url = `https://peaceful-dawn-20015.herokuapp.com/items/${id}`
+        const procced = window.confirm('Are you sure to delete this item?')
+        if (procced) {
+            fetch(url, {
+                method: 'DELETE',
             })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deleteCount > 0) {
+                        const remaining = items.filter(item => item._id !== id);
+                        setItems(remaining)
+                    }
+                })
+        }
     }
     return (
         <tr className="bg-gray-100 border-b">

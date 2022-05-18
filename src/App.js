@@ -12,6 +12,7 @@ import Blogs from "./components/Blogs/Blogs";
 import NotFound from "./components/NotFound/NotFound";
 import About from "./components/About/About";
 import Footer from "./components/Footer/Footer";
+import MyItems from "./components/MyItems/MyItems";
 
 
 
@@ -39,6 +40,16 @@ function App() {
         <Route path='/manage/:id' element={
           <RequirAuth>
             <ManageItem />
+          </RequirAuth>}>
+        </Route>
+        <Route path='items/manage/:id' element={
+          <RequirAuth>
+            <ManageItem />
+          </RequirAuth>}>
+        </Route>
+        <Route path='myitems' element={
+          <RequirAuth>
+            <MyItems />
           </RequirAuth>}>
         </Route>
         <Route path="*" element={<NotFound />}></Route>
