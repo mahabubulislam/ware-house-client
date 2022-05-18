@@ -36,7 +36,7 @@ function App() {
             <AddItems />
           </RequirAuth>}>
         </Route>
-        <Route path='/manage:id' element={
+        <Route path='/manage/:id' element={
           <RequirAuth>
             <ManageItem />
           </RequirAuth>}>

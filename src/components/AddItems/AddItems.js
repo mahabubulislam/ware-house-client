@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 const AddItems = () => {
-    const [addItem, setAddItem] = useState([]);
+    const [addItem, setAddItem] = useState({});
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         setAddItem(data);
+        console.log(data)
         reset()
     };
     // Post data

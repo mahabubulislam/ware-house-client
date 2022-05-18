@@ -12,7 +12,7 @@ const Items = () => {
                     items.slice(0, 6).map(item => <Item key={item._id} item={item}></Item>)
                 }
             </div>
-            <Link className='bg-red-100 p-5 block w-1/5 mx-auto text-center' to='/allitems'>All items</Link>
+            <Link className='bg-red-100 p-5 block w-1/5 mx-auto text-center' to='/items'>All items</Link>
         </>
     );
 };
