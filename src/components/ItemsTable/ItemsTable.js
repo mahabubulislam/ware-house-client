@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import useItems from '../../hooks/useItem';
 
+
 const ItemsTable = ({ item }) => {
-    const [items, setItems] = useItems()
-    const { name, supplier, img, description, price, quantity } = item ;
+    const { items, setItems} = useItems()
+    const { name, supplier, img, description, price, quantity } = item;
     const deleteItem = id => {
         const url = `https://peaceful-dawn-20015.herokuapp.com/items/${id}`
         const procced = window.confirm('Are you sure to delete this item?')
